@@ -1,0 +1,15 @@
+# Ignorar arquivos de ambiente e chaves de API
+.env
+*.key
+
+# Ignorar arquivos de cache e diretórios de ambiente virtual
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+ENV/
+
+# Ignorar logs e arquivos temporários
+*.log
+*.tmp 
