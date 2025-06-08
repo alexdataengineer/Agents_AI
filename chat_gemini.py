@@ -1,7 +1,10 @@
+import os
 import google.generativeai as genai
 
-# Configuração da chave da API do Gemini
-API_KEY = "AIzaSyB1sZ-elJcnGkwvGA7RUe6lm9z-nbTWMOg"
+# Configuração da chave da API Gemini
+# Substitua a linha abaixo pela sua chave de API ou use uma variável de ambiente
+# API_KEY = "sua-chave-aqui"
+API_KEY = os.getenv("GEMINI_API_KEY")
 genai.configure(api_key=API_KEY)
 
 # Listar e mostrar detalhes dos modelos disponíveis
