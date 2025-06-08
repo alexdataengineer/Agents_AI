@@ -82,7 +82,7 @@ This project is actively maintained and open to contributions. Feel free to:
 
 ## Author
 
-Alex Silva
+Alexsander Silveira
 - GitHub: [alexdataengineer](https://github.com/alexdataengineer)
 - LinkedIn: https://www.linkedin.com/in/alexsander-silveira-62b258200/
 - Medium: https://medium.com/@alexsander.silveira1
