@@ -2,10 +2,8 @@ import os
 import google.generativeai as genai
 
 # Configuração da chave da API Gemini
-# Substitua a linha abaixo pela sua chave de API ou use uma variável de ambiente
-# API_KEY = "sua-chave-aqui"
-API_KEY = os.getenv("GEMINI_API_KEY")
-genai.configure(api_key=API_KEY)
+# Use a variável de ambiente GEMINI_API_KEY
+genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 
 # Listar e mostrar detalhes dos modelos disponíveis
 print("\n=== Modelos Disponíveis na API Gemini ===\n")
@@ -51,9 +49,12 @@ if selected_model is None:
 
 # Função de chat
 def chat_with_gemini():
-    print("\nGemini Chat Agent (Digite 'quit' para sair)")
+    print("Gemini Chat Agent (Digite 'quit' para sair)")
     print("-----------------------------------------")
-    history = []
+    
+    # Inicializa o modelo Gemini
+    model = genai.GenerativeModel('gemini-1.5-pro-latest')
+    chat = model.start_chat(history=[])
 
     while True:
         user_input = input("\nVocê: ").strip()
@@ -62,11 +63,8 @@ def chat_with_gemini():
             break
 
         try:
-            contents = history + [user_input]
-            response = selected_model.generate_content(contents)
-            print("\nGemini:", response.text)
-            history.append(user_input)
-            history.append(response.text)
+            response = chat.send_message(user_input)
+            print("\nAI:", response.text)
         except Exception as e:
             print(f"\nErro ao enviar mensagem: {str(e)}")
             print("Tentando novamente na próxima iteração...")
